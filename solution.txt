@@ -1,2 +1,25 @@
-Please add your pseudocode to this file
-And a written explanation of your solution
+Create an empty list for the results.
+For each starting position in the string:
+    For each ending position after the start:
+        Take the consecutive characters between those positions.
+        Add that substring to the results.
+Return the results.
+
+Big O:
+Let n be the length of the input string. The two loops generate
+n(n + 1) / 2 substrings, so there are O(n²) loop iterations.
+Each slice copies the characters in a substring. Across all
+substrings, the total time is O(n³). Storing the returned
+substrings also uses O(n³) space.
+
+Solution:
+The function starts with an empty result array. The outer loop selects each
+character as a starting position. For each start, the inner loop moves the
+ending position forward. It uses slice(start, end) to make each consecutive
+substring and adds it to the array in the required order. Finally, it returns
+the array. An empty string returns an empty array because the loops do not run.
+
+Time complexity:
+For a string of length n, the loops produce n(n + 1) / 2 substrings.
+That is O(n²) loop iterations. Since slice() copies the characters in
+each substring, the total time complexity is O(n³).
